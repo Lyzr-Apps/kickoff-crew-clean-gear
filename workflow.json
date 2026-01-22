@@ -1,0 +1,189 @@
+{
+  "workflow_name": "Product Kickoff Crew",
+  "description": "End-to-end product kickoff workflow that transforms product ideas into comprehensive deliverables including PRD, prioritized roadmap, user stories, and packaged documentation",
+  "nodes": [
+    {
+      "id": "user_input",
+      "type": "Input",
+      "label": "Product Idea Input",
+      "nodeCategory": "input",
+      "position": {
+        "x": 100,
+        "y": 200
+      }
+    },
+    {
+      "id": "orchestrator_manager",
+      "type": "Agent",
+      "label": "Product Kickoff Orchestrator",
+      "nodeCategory": "agent",
+      "agent_id": "6972876bd6d0dcaec111dce4",
+      "agent_name": "Product Kickoff Orchestrator",
+      "agent_type": "Manager",
+      "position": {
+        "x": 400,
+        "y": 200
+      }
+    },
+    {
+      "id": "prd_builder",
+      "type": "Agent",
+      "label": "PRD Builder Agent",
+      "nodeCategory": "agent",
+      "agent_id": "697286c3d6d0dcaec111dcbf",
+      "agent_name": "PRD Builder Agent",
+      "agent_type": "Sub-Agent",
+      "position": {
+        "x": 700,
+        "y": 50
+      }
+    },
+    {
+      "id": "prioritizer",
+      "type": "Agent",
+      "label": "Prioritizer Agent",
+      "nodeCategory": "agent",
+      "agent_id": "697286f01d92f5e2dd230375",
+      "agent_name": "Prioritizer Agent",
+      "agent_type": "Sub-Agent",
+      "position": {
+        "x": 700,
+        "y": 150
+      }
+    },
+    {
+      "id": "story_mapper",
+      "type": "Agent",
+      "label": "Story Mapper Agent",
+      "nodeCategory": "agent",
+      "agent_id": "697287141d92f5e2dd230380",
+      "agent_name": "Story Mapper Agent",
+      "agent_type": "Sub-Agent",
+      "position": {
+        "x": 700,
+        "y": 250
+      }
+    },
+    {
+      "id": "product_ops",
+      "type": "Agent",
+      "label": "Product Ops Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6972873ed6d0dcaec111dcdd",
+      "agent_name": "Product Ops Agent",
+      "agent_type": "Sub-Agent",
+      "position": {
+        "x": 700,
+        "y": 350
+      }
+    },
+    {
+      "id": "final_output",
+      "type": "Output",
+      "label": "Kickoff Package Output",
+      "nodeCategory": "end",
+      "position": {
+        "x": 1000,
+        "y": 200
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "user_input",
+      "target": "orchestrator_manager"
+    },
+    {
+      "source": "orchestrator_manager",
+      "target": "prd_builder"
+    },
+    {
+      "source": "prd_builder",
+      "target": "prioritizer"
+    },
+    {
+      "source": "prioritizer",
+      "target": "story_mapper"
+    },
+    {
+      "source": "story_mapper",
+      "target": "product_ops"
+    },
+    {
+      "source": "product_ops",
+      "target": "final_output"
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "6972876bd6d0dcaec111dce4",
+      "name": "Product Kickoff Orchestrator",
+      "type": "Manager",
+      "description": "Coordinates the end-to-end kickoff workflow, routes product idea through specialized agents in sequence, aggregates all outputs into unified deliverable package",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 1,
+      "managed_agents": [
+        "697286c3d6d0dcaec111dcbf",
+        "697286f01d92f5e2dd230375",
+        "697287141d92f5e2dd230380",
+        "6972873ed6d0dcaec111dcdd"
+      ],
+      "response_schema_file": "response_schemas/product_kickoff_orchestrator_response.json"
+    },
+    {
+      "agent_id": "697286c3d6d0dcaec111dcbf",
+      "name": "PRD Builder Agent",
+      "type": "Sub-Agent",
+      "description": "Drafts structured product requirements document including problem statement, user personas, feature list, success metrics, and scope boundaries",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.5,
+      "top_p": 0.95,
+      "response_schema_file": "response_schemas/prd_builder_agent_response.json"
+    },
+    {
+      "agent_id": "697286f01d92f5e2dd230375",
+      "name": "Prioritizer Agent",
+      "type": "Sub-Agent",
+      "description": "Conducts competitor research using web search, analyzes market positioning, applies RICE scoring (Reach, Impact, Confidence, Effort) to features, generates prioritized roadmap",
+      "provider": "Perplexity",
+      "model": "sonar-pro",
+      "temperature": 0.3,
+      "top_p": 1,
+      "response_schema_file": "response_schemas/prioritizer_agent_response.json"
+    },
+    {
+      "agent_id": "697287141d92f5e2dd230380",
+      "name": "Story Mapper Agent",
+      "type": "Sub-Agent",
+      "description": "Converts prioritized features into JIRA-ready user stories with acceptance criteria, story points, epic groupings, and sprint recommendations",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.4,
+      "top_p": 1,
+      "response_schema_file": "response_schemas/story_mapper_agent_response.json"
+    },
+    {
+      "agent_id": "6972873ed6d0dcaec111dcdd",
+      "name": "Product Ops Agent",
+      "type": "Sub-Agent",
+      "description": "Packages all documents into final deliverable format, saves to user-specified workspace (Notion/Google Docs), sends stakeholder notification emails with summary",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.3,
+      "top_p": 1,
+      "integrations": ["Notion", "Gmail"],
+      "response_schema_file": "response_schemas/product_ops_agent_response.json"
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-01-22",
+    "total_agents": 5,
+    "manager_agents": 1,
+    "sub_agents": 4,
+    "workflow_type": "manager-subagent",
+    "trigger": "Button click on Dashboard"
+  }
+}

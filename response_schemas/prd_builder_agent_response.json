@@ -1,0 +1,265 @@
+{
+  "agent_name": "PRD Builder Agent",
+  "agent_id": "697286c3d6d0dcaec111dcbf",
+  "agent_purpose": "custom",
+  "description": "Returns a comprehensive Product Requirements Document with problem statement, user personas, features, success metrics, and scope",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "problem_statement": "string",
+      "user_personas": [
+        {
+          "name": "string",
+          "description": "string",
+          "pain_points": [
+            "string"
+          ],
+          "goals": [
+            "string"
+          ]
+        }
+      ],
+      "features": [
+        {
+          "name": "string",
+          "description": "string",
+          "user_value": "string"
+        }
+      ],
+      "success_metrics": [
+        {
+          "metric": "string",
+          "target": "string",
+          "measurement_method": "string"
+        }
+      ],
+      "scope": {
+        "in_scope": [
+          "string"
+        ],
+        "out_of_scope": [
+          "string"
+        ]
+      },
+      "summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "problem_statement": "Small business owners and finance managers often spend excessive time on manual expense tracking, receipt collection, and reconciliation. This process is error-prone, inefficient, and detracts from higher-value business activities. An AI-powered expense management platform can automate data entry and receipt management, enabling SMBs to save time, reduce errors, and improve financial insights.",
+      "user_personas": [
+        {
+          "name": "Sarah, Small Business Owner",
+          "description": "Owns a local retail store with 10 employees. Manages all business finances herself.",
+          "pain_points": [
+            "Manually tracking receipts and paper invoices",
+            "Difficulty reconciling expenses at month-end",
+            "Lack of real-time visibility into spending"
+          ],
+          "goals": [
+            "Save time on administrative work",
+            "Stay on top of cash flow",
+            "Easily comply with tax and audit requirements"
+          ]
+        },
+        {
+          "name": "James, Finance Manager",
+          "description": "Handles finances for a 25-person marketing agency. Oversees team expense submissions and reimbursement.",
+          "pain_points": [
+            "Chasing employees for missing receipts",
+            "Time-consuming manual data entry",
+            "Frequent errors in expense reports"
+          ],
+          "goals": [
+            "Automate receipt capture and expense categorization",
+            "Maintain accurate, up-to-date records",
+            "Quickly prepare reports for leadership"
+          ]
+        }
+      ],
+      "features": [
+        {
+          "name": "AI Receipt Capture",
+          "description": "Users snap photos or upload receipts; AI extracts relevant details and categorizes expenses automatically.",
+          "user_value": "Eliminates manual data entry and reduces errors in expense tracking."
+        },
+        {
+          "name": "Automated Expense Categorization",
+          "description": "AI intelligently assigns expenses to the correct categories based on business rules and transaction history.",
+          "user_value": "Saves time and ensures consistency for accounting and reporting."
+        },
+        {
+          "name": "Dashboard & Real-time Reporting",
+          "description": "Interactive dashboard providing spend analytics, trends, and compliance alerts.",
+          "user_value": "Gives users instant feedback and helps identify cost-saving opportunities."
+        },
+        {
+          "name": "Integration with Accounting Software",
+          "description": "Connects seamlessly with popular accounting tools (e.g., QuickBooks, Xero) for automatic data sync.",
+          "user_value": "Reduces duplication of work and helps maintain a single source of truth."
+        },
+        {
+          "name": "Multi-user Role Management",
+          "description": "Admins can set permissions, approve expenses, and manage employee access.",
+          "user_value": "Ensures control and security as businesses grow their teams."
+        }
+      ],
+      "success_metrics": [
+        {
+          "metric": "Reduction in Manual Entry Time",
+          "target": "At least 70% less time spent on data entry per month",
+          "measurement_method": "User time-tracking logs and survey responses"
+        },
+        {
+          "metric": "Accuracy of Expense Categorization",
+          "target": "95% accurate auto-categorization",
+          "measurement_method": "Internal QA audits and user feedback"
+        },
+        {
+          "metric": "User Adoption Rate",
+          "target": "70% of signed-up users submit expenses monthly",
+          "measurement_method": "Platform usage analytics"
+        },
+        {
+          "metric": "Customer Satisfaction (NPS)",
+          "target": "NPS score of 40 or higher",
+          "measurement_method": "Net Promoter Score surveys"
+        }
+      ],
+      "scope": {
+        "in_scope": [
+          "AI-based receipt and invoice data extraction",
+          "Expense categorization and reporting",
+          "Dashboard with analytics and compliance alerts",
+          "Integrations with popular SMB accounting software",
+          "Role-based permissions and approvals"
+        ],
+        "out_of_scope": [
+          "Payroll processing",
+          "Tax filing or direct tax payment features",
+          "Large enterprise ERP integrations",
+          "Physical receipt storage/logistics"
+        ]
+      },
+      "summary": "This PRD outlines an AI-powered expense management platform tailored for small businesses and finance managers who seek to automate receipt capture, expense categorization, and reporting. By streamlining these processes via AI and seamless integrations, the platform aims to save time, increase accuracy, and deliver actionable insights while remaining focused on SMB needs without extending into payroll or large enterprise solutions."
+    },
+    "metadata": {
+      "agent_name": "PRD Builder Agent",
+      "timestamp": "2024-06-08T22:32:46Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-22T20:28:09.782499",
+  "test_message_used": "Provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "problem_statement": "Small business owners and finance managers often spend excessive time on manual expense tracking, receipt collection, and reconciliation. This process is error-prone, inefficient, and detracts from higher-value business activities. An AI-powered expense management platform can automate data entry and receipt management, enabling SMBs to save time, reduce errors, and improve financial insights.",
+      "user_personas": [
+        {
+          "name": "Sarah, Small Business Owner",
+          "description": "Owns a local retail store with 10 employees. Manages all business finances herself.",
+          "pain_points": [
+            "Manually tracking receipts and paper invoices",
+            "Difficulty reconciling expenses at month-end",
+            "Lack of real-time visibility into spending"
+          ],
+          "goals": [
+            "Save time on administrative work",
+            "Stay on top of cash flow",
+            "Easily comply with tax and audit requirements"
+          ]
+        },
+        {
+          "name": "James, Finance Manager",
+          "description": "Handles finances for a 25-person marketing agency. Oversees team expense submissions and reimbursement.",
+          "pain_points": [
+            "Chasing employees for missing receipts",
+            "Time-consuming manual data entry",
+            "Frequent errors in expense reports"
+          ],
+          "goals": [
+            "Automate receipt capture and expense categorization",
+            "Maintain accurate, up-to-date records",
+            "Quickly prepare reports for leadership"
+          ]
+        }
+      ],
+      "features": [
+        {
+          "name": "AI Receipt Capture",
+          "description": "Users snap photos or upload receipts; AI extracts relevant details and categorizes expenses automatically.",
+          "user_value": "Eliminates manual data entry and reduces errors in expense tracking."
+        },
+        {
+          "name": "Automated Expense Categorization",
+          "description": "AI intelligently assigns expenses to the correct categories based on business rules and transaction history.",
+          "user_value": "Saves time and ensures consistency for accounting and reporting."
+        },
+        {
+          "name": "Dashboard & Real-time Reporting",
+          "description": "Interactive dashboard providing spend analytics, trends, and compliance alerts.",
+          "user_value": "Gives users instant feedback and helps identify cost-saving opportunities."
+        },
+        {
+          "name": "Integration with Accounting Software",
+          "description": "Connects seamlessly with popular accounting tools (e.g., QuickBooks, Xero) for automatic data sync.",
+          "user_value": "Reduces duplication of work and helps maintain a single source of truth."
+        },
+        {
+          "name": "Multi-user Role Management",
+          "description": "Admins can set permissions, approve expenses, and manage employee access.",
+          "user_value": "Ensures control and security as businesses grow their teams."
+        }
+      ],
+      "success_metrics": [
+        {
+          "metric": "Reduction in Manual Entry Time",
+          "target": "At least 70% less time spent on data entry per month",
+          "measurement_method": "User time-tracking logs and survey responses"
+        },
+        {
+          "metric": "Accuracy of Expense Categorization",
+          "target": "95% accurate auto-categorization",
+          "measurement_method": "Internal QA audits and user feedback"
+        },
+        {
+          "metric": "User Adoption Rate",
+          "target": "70% of signed-up users submit expenses monthly",
+          "measurement_method": "Platform usage analytics"
+        },
+        {
+          "metric": "Customer Satisfaction (NPS)",
+          "target": "NPS score of 40 or higher",
+          "measurement_method": "Net Promoter Score surveys"
+        }
+      ],
+      "scope": {
+        "in_scope": [
+          "AI-based receipt and invoice data extraction",
+          "Expense categorization and reporting",
+          "Dashboard with analytics and compliance alerts",
+          "Integrations with popular SMB accounting software",
+          "Role-based permissions and approvals"
+        ],
+        "out_of_scope": [
+          "Payroll processing",
+          "Tax filing or direct tax payment features",
+          "Large enterprise ERP integrations",
+          "Physical receipt storage/logistics"
+        ]
+      },
+      "summary": "This PRD outlines an AI-powered expense management platform tailored for small businesses and finance managers who seek to automate receipt capture, expense categorization, and reporting. By streamlining these processes via AI and seamless integrations, the platform aims to save time, increase accuracy, and deliver actionable insights while remaining focused on SMB needs without extending into payroll or large enterprise solutions."
+    },
+    "metadata": {
+      "agent_name": "PRD Builder Agent",
+      "timestamp": "2024-06-08T22:32:46Z"
+    }
+  },
+  "test_passed": true
+}

@@ -1,0 +1,40 @@
+{
+  "workflow_name": "Product Kickoff Crew",
+  "status": "completed",
+  "agents_created": 5,
+  "agents": {
+    "manager": {
+      "agent_id": "6972876bd6d0dcaec111dce4",
+      "name": "Product Kickoff Orchestrator",
+      "status": "created",
+      "response_schema": "response_schemas/product_kickoff_orchestrator_response.json"
+    },
+    "sub_agents": [
+      {
+        "agent_id": "697286c3d6d0dcaec111dcbf",
+        "name": "PRD Builder Agent",
+        "status": "created",
+        "response_schema": "response_schemas/prd_builder_agent_response.json"
+      },
+      {
+        "agent_id": "697286f01d92f5e2dd230375",
+        "name": "Prioritizer Agent",
+        "status": "created",
+        "response_schema": "response_schemas/prioritizer_agent_response.json"
+      },
+      {
+        "agent_id": "697287141d92f5e2dd230380",
+        "name": "Story Mapper Agent",
+        "status": "created",
+        "response_schema": "response_schemas/story_mapper_agent_response.json"
+      },
+      {
+        "agent_id": "6972873ed6d0dcaec111dcdd",
+        "name": "Product Ops Agent",
+        "status": "created",
+        "response_schema": "response_schemas/product_ops_agent_response.json"
+      }
+    ]
+  },
+  "timestamp": "2026-01-22T00:00:00Z"
+}

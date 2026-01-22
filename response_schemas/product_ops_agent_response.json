@@ -1,0 +1,187 @@
+{
+  "agent_name": "Product Ops Agent",
+  "agent_id": "6972873ed6d0dcaec111dcdd",
+  "agent_purpose": "custom",
+  "description": "Returns packaged deliverables with workspace links, notification status, and graceful error handling for integration failures",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "package_created": "boolean",
+      "workspace_links": {
+        "prd_url": "string",
+        "roadmap_url": "string",
+        "user_stories_url": "string"
+      },
+      "notifications_sent": {
+        "stakeholders_notified": [
+          "string"
+        ],
+        "email_subject": "string",
+        "sent_at": "string"
+      },
+      "summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_success_response": {
+    "status": "success",
+    "result": {
+      "package_status": "success",
+      "deliverables": {
+        "prd_summary": "Complete PRD with problem statement, user personas, feature list, success metrics, and scope boundaries",
+        "roadmap_summary": "15 features RICE-scored across 3 phases: MVP (8 features), Growth (5 features), Scale (2 features)",
+        "stories_count": 12
+      },
+      "workspace_delivery": {
+        "platform": "notion",
+        "status": "success",
+        "url_or_error": "https://www.notion.so/team/product-kickoff-deliverables-abc123"
+      },
+      "email_notifications": {
+        "sent": true,
+        "recipients": [
+          "pm@company.com",
+          "engineering@company.com"
+        ],
+        "status": "success"
+      },
+      "next_steps": [
+        "Review Notion workspace for all deliverables",
+        "Schedule kickoff meeting with stakeholders",
+        "Begin sprint planning using user stories"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Product Ops Agent",
+      "timestamp": "2026-01-22T15:30:00Z"
+    }
+  },
+  "example_partial_response_notion_failed": {
+    "status": "partial",
+    "result": {
+      "package_status": "partial",
+      "deliverables": {
+        "prd_summary": "Complete PRD with problem statement, personas, features, metrics, and scope",
+        "roadmap_summary": "15 features RICE-scored across 3 phases (MVP, Growth, Scale)",
+        "stories_count": 12
+      },
+      "workspace_delivery": {
+        "platform": "notion",
+        "status": "failed",
+        "url_or_error": "Notion API access not configured. Please enable Notion integration in Settings."
+      },
+      "email_notifications": {
+        "sent": false,
+        "recipients": [
+          "pm@company.com"
+        ],
+        "status": "skipped"
+      },
+      "next_steps": [
+        "Review PRD and roadmap content above",
+        "Manually create Notion page and copy deliverables",
+        "Connect Notion workspace via Settings > Integrations",
+        "Share deliverables with stakeholders manually"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Product Ops Agent",
+      "timestamp": "2026-01-22T15:30:00Z"
+    }
+  },
+  "example_partial_response_gmail_failed": {
+    "status": "partial",
+    "result": {
+      "package_status": "partial",
+      "deliverables": {
+        "prd_summary": "Complete PRD with 5 sections covering problem, users, features, and metrics",
+        "roadmap_summary": "18 features prioritized using RICE framework",
+        "stories_count": 15
+      },
+      "workspace_delivery": {
+        "platform": "notion",
+        "status": "success",
+        "url_or_error": "https://www.notion.so/team/product-kickoff-xyz789"
+      },
+      "email_notifications": {
+        "sent": false,
+        "recipients": [
+          "pm@company.com"
+        ],
+        "status": "failed",
+        "error": "Gmail API authentication failed"
+      },
+      "next_steps": [
+        "Review deliverables in Notion workspace",
+        "Manually notify stakeholders via email",
+        "Connect Gmail integration for automated notifications"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Product Ops Agent",
+      "timestamp": "2026-01-22T15:30:00Z"
+    }
+  },
+  "integration_failure_handling": {
+    "notion_failed": "Set workspace_delivery.status='failed' and include error in url_or_error",
+    "gmail_failed": "Set email_notifications.status='failed' and sent=false",
+    "both_failed": "Set package_status='partial', both integrations marked as failed, include manual workaround steps"
+  },
+  "is_actual_tested": true,
+  "schema_version": "2.0",
+  "updated_at": "2026-01-22T20:45:00Z",
+  "update_reason": "Fixed JSON response format to handle integration failures gracefully within structured schema",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "package_created": true,
+      "workspace_links": {
+        "prd_url": "https://notion.so/example-prd-url",
+        "roadmap_url": "https://notion.so/example-roadmap-url",
+        "user_stories_url": "https://notion.so/example-userstories-url"
+      },
+      "notifications_sent": {
+        "stakeholders_notified": [
+          "product@example.com",
+          "dev@example.com"
+        ],
+        "email_subject": "Product Kickoff Package Ready",
+        "sent_at": "2024-06-10T15:28:34Z"
+      },
+      "summary": "Product kickoff deliverables have been packaged and saved in Notion: PRD includes a detailed problem statement and defined personas; the roadmap contains 10 features prioritized with RICE scoring; and 15 user stories organized across 5 epics are included. Stakeholders have been notified with workspace links."
+    },
+    "metadata": {
+      "agent_name": "Product Ops Agent",
+      "timestamp": "2024-06-10T15:28:34Z"
+    }
+  },
+  "test_timestamp": "2026-01-22T20:32:34.318790",
+  "test_passed": true,
+  "example_response": {
+    "status": "success",
+    "result": {
+      "package_created": true,
+      "workspace_links": {
+        "prd_url": "https://notion.so/example-prd-url",
+        "roadmap_url": "https://notion.so/example-roadmap-url",
+        "user_stories_url": "https://notion.so/example-userstories-url"
+      },
+      "notifications_sent": {
+        "stakeholders_notified": [
+          "product@example.com",
+          "dev@example.com"
+        ],
+        "email_subject": "Product Kickoff Package Ready",
+        "sent_at": "2024-06-10T15:28:34Z"
+      },
+      "summary": "Product kickoff deliverables have been packaged and saved in Notion: PRD includes a detailed problem statement and defined personas; the roadmap contains 10 features prioritized with RICE scoring; and 15 user stories organized across 5 epics are included. Stakeholders have been notified with workspace links."
+    },
+    "metadata": {
+      "agent_name": "Product Ops Agent",
+      "timestamp": "2024-06-10T15:28:34Z"
+    }
+  }
+}

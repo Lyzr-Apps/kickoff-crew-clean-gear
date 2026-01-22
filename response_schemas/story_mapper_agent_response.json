@@ -1,0 +1,257 @@
+{
+  "agent_name": "Story Mapper Agent",
+  "agent_id": "697287141d92f5e2dd230380",
+  "agent_purpose": "custom",
+  "description": "Returns JIRA-ready user stories with epics, acceptance criteria, story points, and sprint recommendations",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "epics": [
+        {
+          "epic_name": "string",
+          "epic_description": "string",
+          "business_value": "string"
+        }
+      ],
+      "user_stories": [
+        {
+          "story_id": "string",
+          "epic": "string",
+          "title": "string",
+          "user_story": "string",
+          "acceptance_criteria": [
+            "string"
+          ],
+          "story_points": "number",
+          "priority": "string",
+          "sprint_recommendation": "string"
+        }
+      ],
+      "sprint_plan": {
+        "sprint_1": {
+          "stories": [
+            "string"
+          ],
+          "total_points": "number",
+          "focus": "string"
+        },
+        "sprint_2": {
+          "stories": [
+            "string"
+          ],
+          "total_points": "number",
+          "focus": "string"
+        }
+      },
+      "summary": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "epics": [
+        {
+          "epic_name": "Receipt OCR Scanning",
+          "epic_description": "Enable users to scan and extract information from receipts using OCR technology.",
+          "business_value": "Automates data entry, improves efficiency, and reduces manual input errors."
+        },
+        {
+          "epic_name": "Expense Categorization",
+          "epic_description": "Automatically categorize expenses based on scanned or entered receipt data.",
+          "business_value": "Simplifies bookkeeping and provides accurate spending overview for users."
+        },
+        {
+          "epic_name": "Reporting Dashboard",
+          "epic_description": "Provide a dashboard for users to view, filter, and analyze their expense data.",
+          "business_value": "Empowers users to make informed financial decisions with actionable insights."
+        }
+      ],
+      "user_stories": [
+        {
+          "story_id": "US-001",
+          "epic": "Receipt OCR Scanning",
+          "title": "Scan a receipt and extract data",
+          "user_story": "As a user, I want to scan a receipt using my device's camera so that the relevant expense data is automatically extracted and recorded.",
+          "acceptance_criteria": [
+            "Given I have a physical receipt, When I use the scan feature in the app, Then the app uses OCR to extract the merchant, date, and total amount fields.",
+            "Given the extracted data is unclear or missing, When the scan is complete, Then prompt the user to manually review and confirm or edit the extracted information.",
+            "Given the receipt is scanned, When the data is extracted, Then the expense is saved in my expense list."
+          ],
+          "story_points": 13,
+          "priority": "High",
+          "sprint_recommendation": "Sprint 1"
+        },
+        {
+          "story_id": "US-002",
+          "epic": "Expense Categorization",
+          "title": "Auto-categorize expenses based on receipt data",
+          "user_story": "As a user, I want my expenses to be automatically categorized based on the information extracted from receipts so that I don't have to manually assign categories.",
+          "acceptance_criteria": [
+            "Given an expense is created from a scanned receipt, When the receipt merchant and items are recognized, Then the app assigns an expense category (e.g., Food, Travel, Office Supplies) to the expense.",
+            "Given the auto-categorization is uncertain, When a new expense is added, Then the app allows the user to review and change the suggested category before saving."
+          ],
+          "story_points": 8,
+          "priority": "High",
+          "sprint_recommendation": "Sprint 1"
+        },
+        {
+          "story_id": "US-003",
+          "epic": "Expense Categorization",
+          "title": "Edit expense category manually",
+          "user_story": "As a user, I want to manually change the category of any expense so that I can correct any misclassifications.",
+          "acceptance_criteria": [
+            "Given a list of expenses, When I select an expense, Then I am able to change its category from a predefined list.",
+            "Given I have changed the category, When I save the expense, Then the new category is updated and reflected in all relevant reports."
+          ],
+          "story_points": 3,
+          "priority": "Medium",
+          "sprint_recommendation": "Sprint 2"
+        },
+        {
+          "story_id": "US-004",
+          "epic": "Reporting Dashboard",
+          "title": "View summary of expenses by category",
+          "user_story": "As a user, I want to view a dashboard that summarizes my expenses by category so that I can track where my money is going.",
+          "acceptance_criteria": [
+            "Given I have recorded expenses, When I access the dashboard, Then I see a visual breakdown (e.g., pie chart) of expenses by category for a selected time period.",
+            "Given I want more details, When I click on a category in the dashboard, Then I see a list of individual expenses in that category."
+          ],
+          "story_points": 8,
+          "priority": "Medium",
+          "sprint_recommendation": "Sprint 2"
+        }
+      ],
+      "sprint_plan": {
+        "sprint_1": {
+          "stories": [
+            "US-001",
+            "US-002"
+          ],
+          "total_points": 21,
+          "focus": "Automated receipt scanning and expense categorization foundations"
+        },
+        "sprint_2": {
+          "stories": [
+            "US-003",
+            "US-004"
+          ],
+          "total_points": 11,
+          "focus": "Manual refinement of categorization and expense reporting dashboard"
+        }
+      },
+      "summary": "This user story mapping converts the top three RICE-prioritized features (Receipt OCR Scanning, Expense Categorization, Reporting Dashboard) into JIRA-ready user stories with clear acceptance criteria and points. Initial sprints focus on automated OCR/categorization, followed by user refinement and reporting."
+    },
+    "metadata": {
+      "agent_name": "Story Mapper Agent",
+      "timestamp": "2024-06-11T20:02:19Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-22T20:29:06.311354",
+  "test_message_used": "Provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "epics": [
+        {
+          "epic_name": "Receipt OCR Scanning",
+          "epic_description": "Enable users to scan and extract information from receipts using OCR technology.",
+          "business_value": "Automates data entry, improves efficiency, and reduces manual input errors."
+        },
+        {
+          "epic_name": "Expense Categorization",
+          "epic_description": "Automatically categorize expenses based on scanned or entered receipt data.",
+          "business_value": "Simplifies bookkeeping and provides accurate spending overview for users."
+        },
+        {
+          "epic_name": "Reporting Dashboard",
+          "epic_description": "Provide a dashboard for users to view, filter, and analyze their expense data.",
+          "business_value": "Empowers users to make informed financial decisions with actionable insights."
+        }
+      ],
+      "user_stories": [
+        {
+          "story_id": "US-001",
+          "epic": "Receipt OCR Scanning",
+          "title": "Scan a receipt and extract data",
+          "user_story": "As a user, I want to scan a receipt using my device's camera so that the relevant expense data is automatically extracted and recorded.",
+          "acceptance_criteria": [
+            "Given I have a physical receipt, When I use the scan feature in the app, Then the app uses OCR to extract the merchant, date, and total amount fields.",
+            "Given the extracted data is unclear or missing, When the scan is complete, Then prompt the user to manually review and confirm or edit the extracted information.",
+            "Given the receipt is scanned, When the data is extracted, Then the expense is saved in my expense list."
+          ],
+          "story_points": 13,
+          "priority": "High",
+          "sprint_recommendation": "Sprint 1"
+        },
+        {
+          "story_id": "US-002",
+          "epic": "Expense Categorization",
+          "title": "Auto-categorize expenses based on receipt data",
+          "user_story": "As a user, I want my expenses to be automatically categorized based on the information extracted from receipts so that I don't have to manually assign categories.",
+          "acceptance_criteria": [
+            "Given an expense is created from a scanned receipt, When the receipt merchant and items are recognized, Then the app assigns an expense category (e.g., Food, Travel, Office Supplies) to the expense.",
+            "Given the auto-categorization is uncertain, When a new expense is added, Then the app allows the user to review and change the suggested category before saving."
+          ],
+          "story_points": 8,
+          "priority": "High",
+          "sprint_recommendation": "Sprint 1"
+        },
+        {
+          "story_id": "US-003",
+          "epic": "Expense Categorization",
+          "title": "Edit expense category manually",
+          "user_story": "As a user, I want to manually change the category of any expense so that I can correct any misclassifications.",
+          "acceptance_criteria": [
+            "Given a list of expenses, When I select an expense, Then I am able to change its category from a predefined list.",
+            "Given I have changed the category, When I save the expense, Then the new category is updated and reflected in all relevant reports."
+          ],
+          "story_points": 3,
+          "priority": "Medium",
+          "sprint_recommendation": "Sprint 2"
+        },
+        {
+          "story_id": "US-004",
+          "epic": "Reporting Dashboard",
+          "title": "View summary of expenses by category",
+          "user_story": "As a user, I want to view a dashboard that summarizes my expenses by category so that I can track where my money is going.",
+          "acceptance_criteria": [
+            "Given I have recorded expenses, When I access the dashboard, Then I see a visual breakdown (e.g., pie chart) of expenses by category for a selected time period.",
+            "Given I want more details, When I click on a category in the dashboard, Then I see a list of individual expenses in that category."
+          ],
+          "story_points": 8,
+          "priority": "Medium",
+          "sprint_recommendation": "Sprint 2"
+        }
+      ],
+      "sprint_plan": {
+        "sprint_1": {
+          "stories": [
+            "US-001",
+            "US-002"
+          ],
+          "total_points": 21,
+          "focus": "Automated receipt scanning and expense categorization foundations"
+        },
+        "sprint_2": {
+          "stories": [
+            "US-003",
+            "US-004"
+          ],
+          "total_points": 11,
+          "focus": "Manual refinement of categorization and expense reporting dashboard"
+        }
+      },
+      "summary": "This user story mapping converts the top three RICE-prioritized features (Receipt OCR Scanning, Expense Categorization, Reporting Dashboard) into JIRA-ready user stories with clear acceptance criteria and points. Initial sprints focus on automated OCR/categorization, followed by user refinement and reporting."
+    },
+    "metadata": {
+      "agent_name": "Story Mapper Agent",
+      "timestamp": "2024-06-11T20:02:19Z"
+    }
+  },
+  "test_passed": true
+}
