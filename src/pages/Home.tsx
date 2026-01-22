@@ -1496,9 +1496,9 @@ export default function Home() {
         const mockProductOpsData: ProductOpsResult = {
           package_created: true,
           workspace_links: {
-            prd_url: orchestratorData.delivery_output.notion_url.includes('ERROR')
+            prd_url: orchestratorResult.delivery_output?.notion_url?.includes('ERROR')
               ? "https://notion.so/example-prd-url"
-              : orchestratorData.delivery_output.notion_url,
+              : orchestratorResult.delivery_output?.notion_url || "https://notion.so/example-prd-url",
             roadmap_url: "https://notion.so/example-roadmap-url",
             user_stories_url: "https://notion.so/example-userstories-url"
           },
